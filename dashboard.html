@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PII Redactor - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="global-header">
+        <div class="header-content">
+            <h1>PII Redactor</h1>
+            <div class="user-info">
+                <span id="userDisplay">Welcome, User</span>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="dashboard-section">
+            <h2>📄 Upload Document</h2>
+            <div class="upload-container">
+                <div class="file-upload-area">
+                    <input type="file" id="imageInput" accept=".jpg,.jpeg,.png" class="file-input">
+                    <label for="imageInput" class="file-label">
+                        <div class="upload-icon">📁</div>
+                        <span>Choose an image file (JPG, PNG)</span>
+                    </label>
+                </div>
+                
+                <div class="image-preview-container">
+                    <div id="originalPreview" class="image-preview hidden">
+                        <h3>Original Image</h3>
+                        <img id="originalImage" alt="Original image preview">
+                    </div>
+                    
+                    <div id="redactedPreview" class="image-preview hidden">
+                        <h3>Redacted Image</h3>
+                        <div class="redacted-image-container">
+                            <img id="redactedImage" alt="Redacted image">
+                        </div>
+                        <button id="downloadBtn" class="download-btn hidden">Download Redacted Copy</button>
+                    </div>
+                </div>
+                
+                <button id="redactBtn" class="redact-btn" disabled>Redact Now</button>
+            </div>
+        </section>
+
+        <section class="dashboard-section">
+            <h2>📹 Live Camera Redaction</h2>
+            <div class="camera-container">
+                <div class="camera-controls">
+                    <button id="startCameraBtn" class="camera-btn">Start Camera</button>
+                    <button id="stopCameraBtn" class="camera-btn hidden">Stop Camera</button>
+                </div>
+                
+                <div class="camera-feed-container">
+                    <video id="cameraVideo" class="camera-video" autoplay muted></video>
+                    <canvas id="cameraCanvas" class="camera-canvas"></canvas>
+                </div>
+                
+                <div class="camera-status">
+                    <span id="cameraStatus">Camera not started</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toastContainer" class="toast-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>
